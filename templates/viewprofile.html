@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view profile</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>profile</b></h1>
+
+{% extends 'userhomeindex.html' %}
+        {% block body %}
+            <h1><b>PROFILE</b></h1><br>
+<table class="bg-danger" border="10px">
+    <tr>
+        <td>username:</td>
+        <td>{{ data.username }}</td>
+    </tr>
+            <tr>
+                <td>photo</td>
+                <td><img src="/media/{{ data.photo }}" height="200" width="200"></td>
+            </tr>
+            <tr>
+                <td>place:</td>
+                <td>{{ data.place }}</td>
+            </tr>
+            <tr>
+                <td>post:</td>
+                <td>{{ data.post }}</td>
+            </tr>
+            <tr>
+                <td>pin:</td>
+                <td>{{ data.pin }}</td>
+            </tr>
+            <tr>
+                <td>district:</td>
+                <td>{{ data.district }}</td>
+            </tr>
+            <tr>
+                <td>email:</td>
+                <td>{{ data.email }}</td>
+            </tr>
+            <tr>
+                <td>age:</td>
+                <td>{{data.age }}</td>
+            </tr>
+            <tr>
+                <td>phone:</td>
+                <td>{{ data.phone }}</td>
+            </tr>
+            <tr>
+                <td>gender:</td>
+                <td>{{ data.gender }}</td>
+            </tr>
+            <tr>
+            <td><a href="/contact/editprofile/{{ data.id }}" class="btn-success">edit profile</a></td>
+            </tr>
+</table>
+        {% endblock %}
+
+</body>
+</html>
+

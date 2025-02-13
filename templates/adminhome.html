@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin home</title>
+</head>
+<form method="post" action="/contact/adminhome/">
+    {% csrf_token %}
+<body>
+<h1>welcome admin</h1>
+<table>
+    <tr>
+        <td><a href="/contact/viewusers/">view users</a> </td>
+    </tr>
+    <tr>
+        <td><a href="/contact/adminviewcontacts/">view contacts </a> </td>
+    </tr>
+    <tr>
+        <td><a href="/contact/viewcomplaints/">view complaints</a></td>
+    </tr>
+</table>
+</body>
+</form>
+</html>

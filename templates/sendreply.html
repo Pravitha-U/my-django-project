@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sendreply</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>REPLY</b></h1>
+
+{% extends 'homeindex.html' %}
+{% block body %}
+<form method="post" action="/contact/sendreplypost/">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ id }}">
+    <h1>reply</h1>
+        <table class="bg-success">
+    <tr>
+        <td>reply :</td>
+        <td><input type="text" name="reply"></td>
+    </tr>
+             <tr>
+            <td><input type="submit" class="btn btn-secondary" value="sent"></td>
+        </tr>
+        </table>
+    {% endblock %}
+</form>
+</body>
+</html>

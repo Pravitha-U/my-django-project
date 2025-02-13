@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit profile</title>
+</head>
+<body>
+{% extends 'userhomeindex.html' %}
+        {% block body %}
+<form method="post" action="/contact/editprofilepost/"  enctype="multipart/form-data">
+        {% csrf_token %}
+<table border="10px" class="bg-colors">
+    <input type="hidden" name="id" value="{{ data.id}}">
+
+    <tr>
+        <td>username</td>
+        <td><input type="text" name="username" value="{{ data.username }}"></td>
+    </tr>
+        <tr>
+            <td>photo</td>
+            <td><input type="file" name="photo" value="{{ data.photo }}"></td> <br>
+        </tr>
+    <tr>
+        <td>place</td>
+        <td><input type="text" name="place" value="{{ data.place }}"></td>
+    </tr>
+    <tr>
+        <td>post</td>
+        <td><input type="text" name="post" value="{{ data.post }}"></td>
+    </tr>
+    <tr>
+        <td>pin</td>
+        <td><input type="text" name="pin" value="{{ data.pin }}"></td>
+    </tr>
+    <tr>
+        <td>district</td>
+        <td><input type="text" name="district" value="{{ data.district }}"></td>
+    </tr>
+    <tr>
+        <td>age</td>
+        <td><input type="text" name="age" value="{{ data.age }}"></td>
+    </tr>
+    <tr>
+        <td>email</td>
+        <td><input type="text" name="email" value="{{ data.email }}"></td>
+    </tr>
+    <tr>
+        <td>phone</td>
+        <td><input type="text" name="phone" value="{{ data.phone }}"></td>
+    </tr>
+    <tr>
+            <td>gender</td>
+            <td>
+            <label>female</label>
+            <input type="radio"  name="gender" value="female"  {% if data.gender == "female" %} checked {% endif %}> <br>
+                <label>male</label>
+                <input type="radio" name="gender" value="male"  {% if data.gender == "male" %} checked {% endif %}> </td>
+        </tr><br>
+    <tr>
+        <td><input type="submit" name="update"></td>
+    </tr>
+</table>
+</form>
+{% endblock %}
+</body>
+</html>

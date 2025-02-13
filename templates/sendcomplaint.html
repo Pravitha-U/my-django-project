@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>send complaint</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>complaints</b></h1>
+{% extends 'userhomeindex.html' %}
+        {% block body %}
+<form method="post" action="/contact/sendcomplaintpost/">
+    {% csrf_token %}
+<body>
+<table border="10px" class="bg-success">
+    <tr>
+    <td>complaint</td>
+    <td><input type="text" name="complaint"></td>
+    </tr>
+{#    <tr>#}
+{#    <td>reply</td>#}
+{#    <td><input type="text" name="reply"></td>#}
+{#</tr>#}
+    <tr>
+        <td><input type="submit" class="btn-warning" value="send"></td>
+    </tr>
+</table>
+</form>
+{% endblock %}
+</body>
+</html>

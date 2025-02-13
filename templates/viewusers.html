@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view users</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>ALL USERS</b></h1>
+
+{% extends 'homeindex.html' %}
+{% block body %}
+<form method="post" action="/contact/adminsearchuserspost/">
+ {% csrf_token %}
+<table class="bg-danger" >
+        <tr>
+        <td><input type="text" name="username"></td><br>
+        <td><input type="submit" class="btn btn-success" value="search" ></td>
+        </tr>
+</table>
+<table border="10px" class="bg-warning">
+    <tr>
+        <td>username</td>
+        <td>photo</td>
+        <td>place</td>
+        <td>post</td>
+        <td>pin</td>
+        <td>district</td>
+        <td>email</td>
+        <td>age</td>
+        <td>phone</td>
+        <td>gender</td>
+    </tr>
+            {% for i in data %}
+
+        <tr>
+            <td>{{ i.username }}</td>
+            <td><img src="/media/{{ i.photo }}" height="200" width="200"></td>
+            <td>{{ i.place }}</td>
+            <td>{{ i.post }}</td>
+            <td>{{ i.pin }}</td>
+            <td>{{ i.district }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.phone }}</td>
+            <td>gender  </td>
+            <td>{{ i.gender }}
+        </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}
+</body>
+</html>
+
+
+

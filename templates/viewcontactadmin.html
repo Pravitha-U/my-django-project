@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>viewcontactadmin</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>contacts</b></h1>
+
+{% extends 'homeindex.html' %}
+        {% block body %}
+<form method="post" action="/contact/adminsearchcontactspost/">
+    {% csrf_token %}
+    <table class="bg-warning">
+        <tr>
+        <td><input type="text" name="name"></td><br>
+        <td><input type="submit" class="btn btn-danger" value="search" ></td>
+        </tr>
+</table>
+        <table border="10px" class="bg-primary">
+
+    <tr>
+        <td>name</td>
+        <td>phone</td>
+        <td>email</td>
+        <td>relation</td>
+        <td>photo</td>
+    </tr>
+                            {% for i in data %}
+
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.phone }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.relation }}</td>
+                    <td><img src="{{ i.photo }}" heigh="200" width="200"></td>
+                </tr>
+    {% endfor %}
+        </table>
+            </form>
+            {% endblock %}
+
+            </body>
+
+</html>
+
+

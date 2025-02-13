@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>viewcomplaint</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>COMPLAINTS</b></h1>
+
+{% extends 'homeindex.html' %}
+{% block body %}
+
+<h1>view complaints</h1>
+<form method="post" action="/contact/adminsearchcomplaintspost/">
+    {% csrf_token %}
+<table class="bg-primary">
+        <tr>
+            <td>from</td>
+            <td><input type="date" name="date1"></td>
+            <td>to</td>
+            <td><input type="date" name="date2"></td>
+            <td><input type="submit" class="btn btn-warning" value="search" ></td>
+        </tr>
+</table>
+<table border="2" class="bg-warning">
+    <tr>
+        <td>username</td>
+        <td>complaint</td>
+        <td>date</td>
+        <td>reply</td>
+    </tr>
+            <tr>
+            {% for i in data %}
+            <td>{{ i.USER.username }}</td>
+            <td> {{ i.complaint }}</td>
+                <td>{{ i.date }}</td>
+                <td>{% if i.reply == "pending" %} <a href="/contact/sendreply/{{ i.id }}"> reply</a>{% else %}{{ i.reply }}{% endif %}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+</body>
+</html>
+
+

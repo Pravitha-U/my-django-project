@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contacts</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>contacts</b></h1>
+
+{% extends 'userhomeindex.html' %}
+        {% block body %}
+<form method="post" action="/contact/contactspost/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="10px" class="bg-success">
+        <tr>
+            <td>name</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td><input type="text" name="phone"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <td>relation</td>
+            <td><input type="text" name="relation"></td>
+        </tr>
+        <tr>
+            <td>photo</td>
+            <td><input type="file" name="photo"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="btn-danger" value="submit"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
+</body>
+</html>

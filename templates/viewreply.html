@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view reply</title>
+</head>
+<body>
+<h1 class="bg-warning"><b>reply</b></h1>
+
+{% extends 'userhomeindex.html' %}
+        {% block body %}
+<form method="post" action="/contact/viewreply/">
+    {% csrf_token %}
+    <h1>reply</h1>
+        <table class="bg-info" border="10px">
+
+        {% for i in data %}
+
+            <td>username  :</td>
+            <td>{{ i.USER.username }}</td>
+    <tr>
+
+            <td>complaint  :</td>
+
+        <td>{{ i.complaint }}</td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>{{ i.date }}</td>
+    </tr>
+            <tr>
+                <td>reply</td>
+            <td>{{ i.reply }}</td>
+            </tr>
+            <tr>
+            <td><a href="/contact/deletecomplaint/{{ i.id }}" class="btn-dark">delete</a></td>
+            </tr>
+        {% endfor %}
+</table>
+</form>
+{% endblock %}
+</body>
+</html>
+
+

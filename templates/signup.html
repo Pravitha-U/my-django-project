@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registration</title>
+</head>
+<body>
+{% extends 'signupindex.html' %}
+        {% block body %}
+<form method="post" action="/contact/signuppost/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="2">
+        <tr>
+            <td>username</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>photo</td>
+            <td><input type="file" name="photo"></td>
+        </tr>
+        <tr>
+            <td>place</td>
+            <td><input type="text" name="place"></td>
+        </tr>
+        <tr>
+            <td>post</td>
+            <td><input type="text" name="post"></td>
+        </tr>
+        <tr>
+            <td>pin</td>
+            <td><input type="text" name="pin"></td>
+        </tr>
+        <tr>
+            <td>district</td>
+            <td><input type="text" name="district"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input type="text" name="age"></td>
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td><input type="text" name="phone"></td>
+        </tr>
+       <td>gender</td>
+            <td>
+            <label>female</label>
+            <input type="radio"  name="gender" value="female"><br>
+                <label>male</label>
+                <input type="radio" class="text-dark" name="gender" value="male"></td>
+        </tr><br>
+        <tr>
+            <td>password</td>
+            <td><input type="text" class="text-dark" name="password"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="btn-danger" name="signup"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
+</body>
+</html>
+
+
+
+

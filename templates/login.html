@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>loginpage</title>
+</head>
+<form method="post" action="/contact/loginpost/">
+    {% csrf_token %}
+<body>
+<table border="2">
+    <tr>
+        <td>User Name</td>
+        <td><input type="text" name="username"></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="text" name="password"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" name="login"></td>
+    </tr>
+    <tr>
+        <td><a href="/contact/signup/" class="drop-text"><b>sign up</b></a></td>
+</td>
+    </tr>
+</table>
+</body>
+</form>
+</html>
